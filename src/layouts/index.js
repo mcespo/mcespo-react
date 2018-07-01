@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import styled from "styled-components";
 
 import Header from '../components/Header/Header'
+import Footer from '../components/Footer/Footer'
 
 import './index.css'
 
@@ -10,22 +12,29 @@ const Layout = ({ children, data, location }) => (
   <div>
     <Helmet
       title={data.site.siteMetadata.title}
+      description={data.site.siteMetadata.description}
       meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
+        { name: 'keywords', content: 'Web Design, Frontend Developer, Chicago, Marvin Cespedes' },
+        { name: 'msapplication-TileColor', content: '#FFFFFF' },
+        { name: 'msapplication-TileColor', content: '/mstile-144x144.png' },
+        { name: 'msapplication-TileColor', content: '/mstile-70x70.png' },
+        { name: 'msapplication-TileColor', content: '/mstile-150x150.png' },
+        { name: 'msapplication-TileColor', content: '/mstile-310x150.png' },
+        { name: 'msapplication-TileColor', content: '/mstile-310x310.png' }
+      ]}
+      link={[
+        { rel: 'apple-touch-icon-precomposed', sizes: '152x152', href: '/images/favicons/apple-touch-icon-152x152.png' },
+        { rel: 'icon', sizes: '196x196', href: '/favicon-196x196.png' },
+        { rel: 'icon', sizes: '128x128', href: '/favicon-128x128.png' },
+        { rel: 'icon', sizes: '96x96', href: '/favicon-96x96.png' },
+        { rel: 'icon', sizes: '64x64', href: '/favicon.ico' }
       ]}
     />
-    <Header data={data} location={location} />
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '0px 1.0875rem 1.45rem',
-        paddingTop: 0,
-      }}
-    >
+    <Header />
+    <WelcomeSection>
       {children()}
-    </div>
+    </WelcomeSection>
+    <Footer />
   </div>
 )
 
@@ -42,10 +51,9 @@ export const query = graphql`
         title
       }
     }
-    background: imageSharp(id: {regex: "/bg.jpeg/"}) {
-      sizes(maxWidth: 1240) {
-        ...GatsbyImageSharpSizes
-      }
-    }
   }
+`
+const WelcomeSection = styled.section`
+  margin: 0 auto;
+  width: 75ch;
 `

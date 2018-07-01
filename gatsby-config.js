@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'Marvin Cespedes, Frontend Sweetie-pie',
+    description: 'Chicago-based frontend developer and web designer, Marvin Cespedes produces quality work that looks barely passible by industry standards.'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
