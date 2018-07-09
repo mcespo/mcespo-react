@@ -42,6 +42,7 @@ a {
   color: inherit;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
+  transition: color 400ms ease;
 }
 a:active,
 a:hover {
@@ -372,8 +373,6 @@ p {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  font-size: 22px;
-  line-height: 1.6;
   margin-bottom: 1.45rem;
 }
 figure {
@@ -608,6 +607,32 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
+
+p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+@media screen and (min-width: 55rem) {
+  p {
+    font-size: 22px;
+    line-height: 1.6;
+  }
+}
+
+figcaption {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 200;
+}
+
+@media screen and (min-width: 55rem) {
+  figcaption {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+}
+
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;

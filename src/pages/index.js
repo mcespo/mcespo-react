@@ -1,41 +1,36 @@
 import React from 'react';
-import Link from 'gatsby-link';
-import PostListing from '../components/Posts/PostListing';
+import styled from 'styled-components'
 
-const IndexPage = ({data}) => (
-  <div>
-    <h1>About Us</h1>
-    <p>Lorem ipsum dolor amet palo santo organic quinoa gluten - free, lumbersexual mixtape occupy cloud bread vice.Put a bird on it readymade live - edge man braid cred.Poutine keytar pop - up 3 wolf moon brunch woke photo booth YOLO shabby chic fixie deep v live - edge.Polaroid fanny pack chambray bushwick aesthetic tofu ramps leggings pork belly bespoke four dollar toast selfies adaptogen.Mlkshk ramps disrupt, banh mi bitters messenger bag poutine keytar kickstarter put a bird on it.Succulents drinking vinegar kogi taiyaki wayfarers cold - pressed, beard YOLO williamsburg jean shorts food truck hell of pok pok banjo kale chips.</p>
-    <p>Deep v normcore you probably haven 't heard of them adaptogen, kickstarter enamel pin 8-bit coloring book waistcoat snackwave cronut skateboard edison bulb street art freegan. Schlitz offal everyday carry lumbersexual vape crucifix keffiyeh chartreuse raclette keytar artisan tbh tofu. Kogi portland trust fund marfa. Man braid kitsch copper mug master cleanse hell of squid fingerstache four dollar toast yr blog.</p>
-    {data.allMarkdownRemark.edges.map(({node}) => (
-       <PostListing key={node.id} post={node} />
-    ))}
-  </div>
+const IndexPage = () => (
+  <WelcomeArticle>
+    <WelcomeMessage>
+      Oh Hai! My name is Marvin and I design and develop websites n’ stuff.
+    </WelcomeMessage>
+    <h1>Welcome</h1>
+    <p>I am a frontend developer, web designer, and aspiring fullstack developer residing in beautiful (and mostly chilly) Chicago, Illinois. I volunteer as a designer, developer, and webmaster for the nonprofit organizations, “<a href="http://a4th.org/" title="A4TH website">Artists for the Humanities</a>” and, “<a href="https://intersectionchicago.org/" title="Intersection Chicago website">Intersection</a>.” I am also an instructor/TA for, "<a href="https://www.girldevelopit.com/chapters/chicago" title="GDI Chicago Chapter website">Girl Develop It Chicago</a>", and occasionally tutor frontend development online.</p>
+    <p>I also do freelance photography/video work, am at the beck and call of a <a href="https://www.instagram.com/p/BZmbSzFnZu1/?taken-by=mcespo.jpeg" title="Meli the Golden, Instagram image">golden retriever</a>, and make <a href="https://www.instagram.com/p/zpfd9aEbwo/?taken-by=mcespo.jpeg" title="Marvin Macchiato, Instagram image">wicked-good coffee</a>.</p>
+    <p>Now that we have all the housekeeping taken care of, feel free to click around at some of my projects, my blog that I totally maintain consistantly, or why not <a href="mailto:mcespo@gmail.com?&amp;subject=Oh%20hello%20Marvin,%20you're%20so%20cool!&amp;body=I%20wish%20to%20be%20marginally%20as%20attractive%20as%20you%20are.%20Please%20help!%20Also,%20I%20wanted%20to%20ask..." title="Email Marvin Cespedes, and tell him all of your dreams">ask me for something</a>?</p>
+  </WelcomeArticle>
 );
-
 
 export default IndexPage
 
-export const query = graphql`
-  query BlogData {
-    allMarkdownRemark(sort: {
-      fields: [frontmatter___date],
-      order: DESC
-    }) {
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            date(formatString: "YYYY MM DD")
-          }
-          fields {
-            slug
-          }
-          html
-          excerpt
-        }
-      }
-    }
+const WelcomeArticle = styled.article`
+  margin: 0 auto;
+  width: 80vw;
+  @media screen and (min-width: 55rem) {
+    width: 75ch;
+  }
+`
+
+const WelcomeMessage = styled.p`
+  font-weight: 200;
+  text-align: center;
+  margin: 3rem 0;
+  font-size: 2.25rem;
+  line-height: 2.25rem;
+  @media screen and (min-width: 55rem) {
+    font-size: 3.5rem;
+    line-height: 3.25rem;
   }
 `

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Img from "gatsby-image";
 
 export default class PostPage extends Component {
   render() {
@@ -22,6 +23,7 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "YYYY MM DD")
+        tags
       }
     }
   }

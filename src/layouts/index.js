@@ -8,7 +8,7 @@ import Footer from '../components/Footer/Footer'
 
 import './index.css'
 
-const Layout = ({ children, data, location }) => (
+const Layout = ({ children, data }) => (
   <div>
     <Helmet
       title={data.site.siteMetadata.title}
@@ -54,6 +54,10 @@ export const query = graphql`
   }
 `
 const WelcomeSection = styled.section`
+  display: block;
   margin: 0 auto;
-  width: 75ch;
+  width: 80vw;
+  @media screen and (min-width: 64rem) {
+    width: 75ch;
+  }
 `
